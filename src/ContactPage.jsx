@@ -407,55 +407,63 @@ function ContactPage() {
           </div>
         </section>
         <section className="flex flex-col justify-center mt-1 w-full min-h-[658px] max-md:max-w-full">
-          <div className="flex flex-wrap justify-between items-center w-full bg-white min-h-[651px] max-md:max-w-full">
-            <div className="ml-auto flex flex-col items-start max-w-[612px] min-h-[460px] w-[612px] max-md:max-w-full max-md:min-h-[350px]">
-              <h2 className="text-5xl font-medium tracking-tighter leading-[60px] text-stone-950 w-[480px] max-md:max-w-full max-md:text-4xl">
-                Reach Our Customer Service Team
-              </h2>
-              <div className="flex flex-col self-stretch mt-4 w-full max-w-max-md:max-w-full">
-                <address className="flex flex-wrap gap-3.5 items-start py-6 w-full border-t border-b border-solid border-y-zinc-300">
-                  <img
-                    loading="lazy"
-                    src= {Map_Pin}
-                    alt="Address icon"
-                    className="object-contain shrink-0 aspect-square w-[30px]"
-                  />
-                  <div className="flex flex-col grow shrink min-w-[240px] w-[488px] max-md:max-w-full">
-                    <div className="text-xl font-medium text-stone-950">
-                      Address
-                    </div>
-                    <div className="mt-2.5 text-base leading-6 text-zinc-500 max-md:max-w-full">
-                      #01, 2nd Floor, NIE StartUp and Incubation Center, <br />
-                      NIE College South Campus, Mananthavadi Road, Mysuru 570008
-                    </div>
-                  </div>
-                </address>
-
-                <div className="flex flex-wrap gap-6 items-start py-6 w-full border-b border-solid border-b-zinc-300">
-                  {contactDetails.map((detail, index) => (
-                  <a href="office@optimumsync.com">  <ContactDetail key={index} {...detail} /></a>
-                  ))}
-                </div>
-              </div>
+  <div className="flex flex-wrap justify-end items-center w-full bg-white min-h-[651px] max-md:max-w-full">
+    <div className="mr-auto flex flex-col items-start max-w-[612px] min-h-[460px] w-[612px] max-md:max-w-full max-md:min-h-[350px]">
+      <h2 className="text-5xl font-medium tracking-tighter leading-[60px] text-stone-950 w-[480px] max-md:max-w-full max-md:text-4xl">
+        <div className="px-5 sm:px-6">Reach Our Customer Service Team</div>
+      </h2>
+      <div className="flex flex-col self-stretch mt-4 w-full max-w-max-md:max-w-full">
+        <div className="px-5 sm:px-6">
+          <address className="flex gap-4 py-6 w-full border-t border-b border-solid border-y-zinc-300">
+            {/* Icon and Address Block */}
+            <img
+              loading="lazy"
+              src={Map_Pin}
+              alt="Address icon"
+              className="object-contain w-[30px] h-[30px]"
+            />
+            <div className="text-base leading-6 text-zinc-500">
+              <strong className="text-xl font-medium text-stone-950 block mb-2">
+                Address
+              </strong>
+              #01, 2nd Floor, NIE StartUp and Incubation Center, <br />
+              NIE College South Campus, Mananthavadi Road, Mysuru 570008
             </div>
-            <div className="w-[800px] ml-auto mr-auto max-md:w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.4741452092753!2d76.63889987453662!3d12.283823629585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf65561e102919%3A0xf947b18cc5ad3d88!2sThe%20National%20Institute%20of%20Engineering%20South%20Campus%20(NIE%20South)!5e0!3m2!1sen!2sin!4v1732705880753!5m2!1sen!2sin"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+          </address>
+        </div>
+        <div className="px-5 sm:px-6">
+          <div className="flex flex-wrap gap-6 items-start py-6 w-full border-b border-solid border-b-zinc-300">
+            {contactDetails.map((detail, index) => (
+              <a href="office@optimumsync.com">
+                <ContactDetail key={index} {...detail} />
+              </a>
+            ))}
           </div>
-        </section>
-
-        <Footer />
-      </main>
+        </div>
+      </div>
     </div>
-  );
+    <div className="w-[800px] ml-auto mr-auto max-md:w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.4741452092753!2d76.63889987453662!3d12.283823629585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf65561e102919%3A0xf947b18cc5ad3d88!2sThe%20National%20Institute%20of%20Engineering%20South%20Campus%20(NIE%20South)!5e0!3m2!1sen!2sin!4v1732705880753!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<Footer />
+</main>
+</div>
+);
+
+
 }
+
+
 
 export default ContactPage;

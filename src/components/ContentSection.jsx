@@ -1,4 +1,5 @@
 import React from 'react';
+
 export default function ContentSection({
     title,
     description,
@@ -6,7 +7,7 @@ export default function ContentSection({
     imageAlt,
     isReversed,
     bgColor = 'bg-white',
-  }) {
+}) {
     const contentOrder = isReversed ? 'md:flex-row-reverse' : 'md:flex-row'; // Adjust for mobile view
     return (
       <div className={`flex flex-col justify-center w-full min-h-[520px]`}>
@@ -18,10 +19,10 @@ export default function ContentSection({
           >
             <div className="flex flex-col grow shrink justify-center items-center self-stretch my-auto text-center border border-solid border-zinc-300 min-h-[450px] min-w-[240px] w-[435px] max-md:max-w-full">
               <div className="flex flex-col justify-center items-center max-w-full w-[440px]">
-                <h2 className="text-3xl font-medium leading-none text-stone-950">
+                <h2 className="text-4xl font-medium leading-none text-stone-950">
                   {title}
                 </h2>
-                <p className="mt-5 text-base leading-6 text-zinc-500 max-md:max-w-full">
+                <p className="mt-8 text-base leading-6 text-justify text-zinc-500 max-md:max-w-full">
                   {description}
                 </p>
               </div>
@@ -40,4 +41,4 @@ export default function ContentSection({
         </div>
       </div>
     );
-  }
+}

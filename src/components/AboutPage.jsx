@@ -2,6 +2,7 @@ import React from 'react';
 import ContentSection from './ContentSection';
 import Footer from './footer';
 import Header from './header';
+
 export default function AboutPage() {
   const sections = [
     {
@@ -26,7 +27,9 @@ export default function AboutPage() {
       imageAlt: 'Target Market Illustration',
       bgColor: 'bg-white'
     }
-  ];  return (
+  ];
+
+  return (
     <div className="flex overflow-hidden flex-col bg-white">
       <Header />
       <div className="flex z-10 flex-wrap gap-3 items-center self-center mt-4 text-5xl font-medium tracking-tighter leading-none text-center text-stone-950 max-md:max-w-full max-md:text-4xl">
@@ -35,7 +38,9 @@ export default function AboutPage() {
           Igniting Innovation
         </h1>
         <div className="shrink-0 self-stretch my-auto h-0 border border-black border-solid w-[120px] max-sm:hidden" />
-      </div>      {sections.map((section, index) => (
+      </div>
+      
+      {sections.map((section, index) => (
         <ContentSection
           key={index}
           title={section.title}
@@ -45,10 +50,9 @@ export default function AboutPage() {
           bgColor={section.bgColor}
           isReversed={section.isReversed}
         />
-      ))}      <Footer />
+      ))}
+      
+      <Footer />
     </div>
   );
 }
-
-
-

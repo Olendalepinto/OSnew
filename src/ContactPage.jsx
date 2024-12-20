@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ContactDetail } from "./components/ContactDetail";
+import emailjs from "@emailjs/browser";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Mail from "./Assets/Mail.png"
@@ -245,6 +246,8 @@ function ContactPage() {
     message: ""
   });
 
+  const [isSent, setIsSent] = useState(false);
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -252,7 +255,7 @@ function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { fullName, email, phone, countryCode } = formData;
+    const { fullName, email, phone, countryCode,message } = formData;
 
     // Validate email
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
@@ -273,14 +276,47 @@ function ContactPage() {
       return;
     }
 
-    alert(`Message sent! sucessfully`);
-    setFormData({
-      fullName: "",
-      email: "",
-      countryCode: "+91",
-      phone: "",
-      message: ""
-    });
+    const emailParams = {
+      from_name: fullName,
+      from_email: email,
+      phone_number: `${countryCode} ${phone}`,
+      message: message,
+    };
+
+    emailjs
+      .send(
+        "service_2i352i6", // Replace with your Service ID
+        "template_qk2fo7s", // Replace with your Template ID
+        emailParams,
+        "OPPBOcruX2a9aQU6A" // Replace with your Public Key
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          setIsSent(true);
+          setFormData({
+            fullName: "",
+            email: "",
+            countryCode: "+91",
+            phone: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.error("Failed to send email:", error);
+          alert("Failed to send the message. Please try again later.");
+        }
+      );
+
+
+    // alert(`Message sent! sucessfully`);
+    // setFormData({
+    //   fullName: "",
+    //   email: "",
+    //   countryCode: "+91",
+    //   phone: "",
+    //   message: ""
+    // });
   };
 
   return (
